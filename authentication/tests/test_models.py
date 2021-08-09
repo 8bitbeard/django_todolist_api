@@ -12,7 +12,8 @@ class TestModel(APITestCase):
         self.assertEqual(user.email, 'will@example.com')
 
     def test_raises_error_when_no_username_is_supplied_when_creating_user(self):
-        self.assertRaises(ValueError, User.objects.create_user, username='', email='will@example.com', password='Abc123$%')
+        self.assertRaises(ValueError, User.objects.create_user, username='', email='will@example.com',
+                          password='Abc123$%')
 
     def test_raises_error_with_message_when_no_username_is_supplied_when_creating_user(self):
         with self.assertRaisesMessage(ValueError, 'The given username must be set'):
@@ -33,7 +34,8 @@ class TestModel(APITestCase):
         self.assertEqual(user.email, 'will@example.com')
 
     def test_raises_error_when_no_username_is_supplied_when_creating_superuser(self):
-        self.assertRaises(ValueError, User.objects.create_user, username='', email='will@example.com', password='Abc123$%')
+        self.assertRaises(ValueError, User.objects.create_user, username='', email='will@example.com',
+                          password='Abc123$%')
 
     def test_raises_error_with_message_when_no_username_is_supplied_when_creating_superuser(self):
         with self.assertRaisesMessage(ValueError, 'The given username must be set'):
@@ -47,15 +49,19 @@ class TestModel(APITestCase):
             User.objects.create_user(username='will', email='', password='Abc123$%')
 
     def test_raises_error_when_superuser_parameter_is_staff_is_not_true(self):
-        self.assertRaises(ValueError, User.objects.create_superuser, username='', email='will@example.com', password='Abc123$%', is_staff=False)
+        self.assertRaises(ValueError, User.objects.create_superuser, username='', email='will@example.com',
+                          password='Abc123$%', is_staff=False)
 
     def test_raises_error_with_message_when_parameter_is_staff_is_not_true_when_creating_superuser(self):
         with self.assertRaisesMessage(ValueError, 'Superuser must have is_staff=True.'):
-            User.objects.create_superuser(username='will', email='will@example.com', password='Abc123$%', is_staff=False)
+            User.objects.create_superuser(username='will', email='will@example.com', password='Abc123$%',
+                                          is_staff=False)
 
     def test_raises_error_when_superuser_parameter_is_superuser_is_not_true(self):
-        self.assertRaises(ValueError, User.objects.create_superuser, username='will', email='', password='Abc123$%', is_superuser=False)
+        self.assertRaises(ValueError, User.objects.create_superuser, username='will', email='', password='Abc123$%',
+                          is_superuser=False)
 
     def test_raises_error_with_message_when_parameter_is_superuser_is_not_true_when_creating_superuser(self):
         with self.assertRaisesMessage(ValueError, 'Superuser must have is_superuser=True.'):
-            User.objects.create_superuser(username='will', email='will@example.com', password='Abc123$%', is_superuser=False)
+            User.objects.create_superuser(username='will', email='will@example.com', password='Abc123$%',
+                                          is_superuser=False)
