@@ -103,11 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# REST_FRAMEWORK={
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'authentication.jwt.JWTAuthentication'
-#     ]
-# }
+REST_FRAMEWORK={
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'authentication.jwt.JWTAuthentication'
+    ]
+}
 
 
 # Internationalization
